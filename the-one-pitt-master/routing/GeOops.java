@@ -51,7 +51,7 @@ public class GeOops implements RoutingDecisionEngineWithCalculation {
         if (destination.isEmpty()) {
             destination = getDestinasi();
         }
-
+        
         if (np.isEmpty()) {
             this.np = HitungDistance(peer);
         }
@@ -59,7 +59,9 @@ public class GeOops implements RoutingDecisionEngineWithCalculation {
     }
 
     public Map<DTNHost, Double> getNearestPoint() {
+        System.out.println(""+np);
         return np;
+        
     }
 
     @Override
@@ -72,17 +74,15 @@ public class GeOops implements RoutingDecisionEngineWithCalculation {
         return m.getTo() == aHost;
     }
 
-    public boolean shouldSaveReceivedMessage(Message m, DTNHost thisHost) {
+    public boolean shouldSaveReceivedMessage(Message m, DTNHost thisHost) { // pesan yang masuk dimasukan buffer engga?
         return m.getTo() != thisHost;
     }
 
     @Override
-    public boolean shouldSendMessageToHost(Message m, DTNHost otherHost) {
+    public boolean shouldSendMessageToHost(Message m, DTNHost otherHost) { 
 
-//        }
         GeOops de = this.getOtherDecisionEngine(otherHost);
-        if (this.getNearestPoint() < de.getNearestPoint<>()) {
-
+        if (this.getNearestPoint() == de.getNearestPoint()) {
             return false;
         } else {
             return true;
