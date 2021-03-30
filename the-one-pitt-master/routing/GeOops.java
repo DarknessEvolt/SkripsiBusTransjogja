@@ -27,6 +27,7 @@ public class GeOops implements RoutingDecisionEngineWithCalculation {
     private final double MAX_NP = 28000;
     private Map<DTNHost, Double> np = new HashMap<DTNHost, Double>();
 
+
     public GeOops(Settings s) {
 
     }
@@ -37,7 +38,8 @@ public class GeOops implements RoutingDecisionEngineWithCalculation {
 
     @Override
     public void connectionUp(DTNHost thisHost, DTNHost peer) {
-
+//        System.out.println("me " + thisHost);
+//        System.out.println("de " + peer);
     }
 
     @Override
@@ -48,20 +50,23 @@ public class GeOops implements RoutingDecisionEngineWithCalculation {
     @Override
     public void doExchangeForNewConnection(Connection con, DTNHost peer) {
 
+        DTNHost myHost = con.getOtherNode(peer);
+        System.out.println("me " + myHost);
         if (destination.isEmpty()) {
             destination = getDestinasi();
         }
-        
+        System.out.println("dest " + destination);
         if (np.isEmpty()) {
-            this.np = HitungDistance(peer);
+            this.np = HitungDistance(myHost);
         }
+        System.out.println("np " + np);
 
     }
 
     public Map<DTNHost, Double> getNearestPoint() {
-        System.out.println(""+np);
+
         return np;
-        
+
     }
 
     @Override
@@ -79,13 +84,37 @@ public class GeOops implements RoutingDecisionEngineWithCalculation {
     }
 
     @Override
-    public boolean shouldSendMessageToHost(Message m, DTNHost otherHost) { 
+    public boolean shouldSendMessageToHost(Message m, DTNHost otherHost) {
 
-        GeOops de = this.getOtherDecisionEngine(otherHost);
-        if (this.getNearestPoint() == de.getNearestPoint()) {
-            return false;
-        } else {
+        if(m.getTo() == otherHost){
             return true;
+        }
+        
+        if(otherHost.toString().startsWith("s") || otherHost.toString().startsWith("t")){
+            return false;
+        } else{
+        
+            DTNHost tujuan = m.getTo();
+            System.out.println(tujuan);
+            GeOops de = this.getOtherDecisionEngine(otherHost);
+
+            System.out.println(otherHost);
+            double jarakku = MAX_NP;
+             double jarakmu = MAX_NP;
+            if(np.get(tujuan)!=null){
+                jarakku = np.get(tujuan);
+            }
+            
+            if(de.getNearestPoint().get(tujuan)!=null){
+                jarakmu = de.getNearestPoint().get(tujuan);
+            }
+            System.out.println(de.getNearestPoint());
+
+            if (jarakmu < jarakmu) {
+                return false;
+            } else {
+                return true;
+            }
         }
     }
 
@@ -123,6 +152,13 @@ public class GeOops implements RoutingDecisionEngineWithCalculation {
                 }
             }
         }
+        
+        if (thisHost.toString().startsWith("s") || (thisHost.toString().startsWith("t"))){
+            for (DTNHost c : destination) {
+                np.put(c, MAX_NP);
+            }
+        }
+        
         return np;
     }
 
