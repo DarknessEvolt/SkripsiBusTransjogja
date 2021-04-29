@@ -21,24 +21,21 @@ import movement.map.MapRoute;
  *
  * @author WINDOWS_X
  */
-public class GeOops implements RoutingDecisionEngineWithCalculation {
+public class Greedy implements RoutingDecisionEngineWithCalculation {
 
     List<DTNHost> destination = new LinkedList<>();
-    private final double MAX_NP = 28000;
     private Map<DTNHost, Double> np = new HashMap<DTNHost, Double>();
 
-    public GeOops(Settings s) {
+    public Greedy(Settings s) {
 
     }
 
-    public GeOops(GeOops r) {
+    public Greedy(Greedy r) {
 
     }
 
     @Override
     public void connectionUp(DTNHost thisHost, DTNHost peer) {
-//        System.out.println("me " + thisHost);
-//        System.out.println("de " + peer);
     }
 
     @Override
@@ -50,23 +47,12 @@ public class GeOops implements RoutingDecisionEngineWithCalculation {
     public void doExchangeForNewConnection(Connection con, DTNHost peer) {
 
         DTNHost myHost = con.getOtherNode(peer);// mantul = membuat koneksi dari drii sendiri untuk node lain terus kekita sendiri untuk mengetahui diri sendiri
-      //  System.out.println("me = " + myHost);
         if (destination.isEmpty()) {
             destination = getDestinasi();
         }
-       // System.out.println("dest " + destination);
-        if (np.isEmpty()) {
-            this.np = HitungDistance(myHost);
-        }
-    //    System.out.println("np = " + np );
-
+     
     }
 
-    public Map<DTNHost, Double> getNearestPoint() {
-
-        return np;
-
-    }
 
     @Override
     public boolean newMessage(Message m) {
@@ -85,43 +71,7 @@ public class GeOops implements RoutingDecisionEngineWithCalculation {
     @Override
     public boolean shouldSendMessageToHost(Message m, DTNHost otherHost) {
 
-        if (m.getTo() == otherHost) {
-            return true;
-
-        }
-
-        if (otherHost.toString().startsWith("s") || otherHost.toString().startsWith("t")) {
-            return false;
-        } else {
-
-            DTNHost tujuan = m.getTo();
-         //   System.out.println(""+tujuan);
-          //  System.out.println(m+" : "+tujuan);
-            GeOops de = this.getOtherDecisionEngine(otherHost);
-
-          //  System.out.println(otherHost);
-            double jarakku = MAX_NP;
-            double jarakmu = MAX_NP;
-            if (np.get(tujuan) != null) {
-                jarakku = np.get(tujuan);
-            }
-
-            if (de.getNearestPoint().get(tujuan) != null) {
-                jarakmu = de.getNearestPoint().get(tujuan);
-            }
-          //  System.out.println(de.getNearestPoint());
-          //  System.out.println("jarakku : "+jarakku);
-          //  System.out.println("Jarakmu ("+otherHost+"): "+jarakmu);
-         
-            if (jarakku < jarakmu) {
-                //System.out.println("tidak kirim");
-                return false;
-            } else {
-             //   System.out.println("kirim");
-                return true;
-             
-            }
-        }
+       return true;
     }
 
     private GeOops getOtherDecisionEngine(DTNHost h) {
@@ -143,40 +93,12 @@ public class GeOops implements RoutingDecisionEngineWithCalculation {
 
     @Override
     public Map<DTNHost, Double> HitungDistance(DTNHost thisHost) {
-
-           double hasilEuclidian = 0;
-          
-        List<List<Coord>> awal = MapRoute.getRouteBus(getRouteIndex(thisHost));
-       if (!thisHost.toString().startsWith("s") && (!thisHost.toString().startsWith("t")))
-        {
-            for (DTNHost c : destination) {
-                double hasil = MAX_NP;
-                for (List<Coord> a : awal) {
-                    for (Coord b : a) {
-                        double jarak = b.distance(c.getLocation());
-                        hasil = (jarak < hasil) ? jarak : hasil;
-                        
-                    }
-                    np.put(c, hasil);
-                    hasilEuclidian = hasil;
-                }
-            }
-        }
-        
-        if (thisHost.toString().startsWith("s") || (thisHost.toString().startsWith("t"))){
-            for (DTNHost c : destination) {
-               // np.put(c, MAX_NP);
-                 np.put(c, null);
-               
-            }
-        }
-        
-        return np;
+        return null;
     }
 
     @Override
     public RoutingDecisionEngineWithCalculation replicate() {
-        return new GeOops(this);
+        return new Greedy(this);
     }
 
     public int getRouteIndex(DTNHost thisHost) {

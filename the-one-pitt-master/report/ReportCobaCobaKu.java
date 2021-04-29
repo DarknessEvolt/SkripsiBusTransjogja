@@ -36,7 +36,7 @@ public class ReportCobaCobaKu extends Report implements MessageListener{
     @Override
     public void newMessage(Message m) {
        
-        System.out.println(""+m);
+        
         
     }
 
@@ -57,8 +57,12 @@ public class ReportCobaCobaKu extends Report implements MessageListener{
 
     @Override
     public void messageTransferred(Message m, DTNHost from, DTNHost to, boolean firstDelivery) {
- 
+           if (!isWarmupID(m.getId()) && firstDelivery) {
+            int ttl = m.getTtl();
+            write(getPathString(m));
     }
+    }
+    @Override
      public void done() {
         super.done();
     }
