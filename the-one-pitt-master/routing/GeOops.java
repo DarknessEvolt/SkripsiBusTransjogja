@@ -109,10 +109,12 @@ public class GeOops implements RoutingDecisionEngineWithCalculation {
             if (de.getNearestPoint().get(tujuan) != null) {
                 jarakmu = de.getNearestPoint().get(tujuan);
             }
+            if (jarakku == jarakmu){
+                return false;
+            }
           //  System.out.println(de.getNearestPoint());
           //  System.out.println("jarakku : "+jarakku);
           //  System.out.println("Jarakmu ("+otherHost+"): "+jarakmu);
-         
             if (jarakku < jarakmu) {
                 //System.out.println("tidak kirim");
                 return false;

@@ -65,8 +65,7 @@ Group.movementModel = MapRouteMovementWithStop
 
 Group.router = DecisionEngineRouter
 DecisionEngineRouter.decisionEngine = GeOops
-
-Group.bufferSize = 40M
+Group.bufferSize = 100M
 Group.waitTime = 0, 0
 Group.nrofInterfaces = 3
 Group.interface1 = w802-11pInterface
@@ -75,7 +74,7 @@ Group.interface3 = w802-15-4Interface
 # Kecepatan Bus Transjogja
 Group.speed = 3, 8
 # Message TTL of 120 minutes (2 hours)
-Group.msgTtl = 120
+Group.msgTtl = 43200
 Group.stopFile = data/Stop3Points.txt
 Group.stopTime = 5, 30
 
@@ -602,7 +601,7 @@ Events2.class = MessageEventGenerator
 
 # (following settings are specific for the MessageEventGenerator class)
 # Creation interval in seconds (one new message every 25 to 35 seconds)
-Events1.interval = 300,300
+Events1.interval = 60,120
 #Message sizes (500kB - 1MB)
 Events1.size = 500k,1M
 #Events1.size = 1M,1M
@@ -612,7 +611,7 @@ Events1.hosts = 9,48
 Events1.prefix = M
 Events1.tohosts = 0,2
 
-Events2.interval = 300,300
+Events2.interval = 60,120
 #Message sizes (500kB - 1MB)
 Events2.size = 500k,1M
 #Events1.size = 1M,1M
