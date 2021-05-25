@@ -158,6 +158,13 @@ public class DecisionEngineRouter extends ActiveRouter
 			//revised by Matthew
 			m.setTtl(this.msgTtl);
 			
+                        //menambahkan jalur ke pesan tergantung sensor mana yang bikin pesan
+                        if(m.toString().startsWith("L")){
+                            m.addProperty("jalur", getJalurL(getHost()));
+                        } else if(m.toString().startsWith("M")){
+                            m.addProperty("jalur", getJalurL(getHost()));
+                        }
+                        
 			addToMessages(m, true);
 			
 			findConnectionsForNewMessage(m, getHost());
@@ -429,4 +436,40 @@ public class DecisionEngineRouter extends ActiveRouter
 			}
 		}
 	}
+        
+        //jalur untuk pesan L
+        public List<String> getJalurL(DTNHost host){
+            String hostname = host.toString();
+            List<String> jalur = new ArrayList<String>();
+            
+            //memilih jalur berdasatkan host (sensor) mana yang buat
+            switch(hostname){
+                case "sensor1":
+//                    jalur.add("1A2A");
+                    jalur.add("2A");
+                    jalur.add("3B");
+                    break;
+                default:
+                    break;
+            }
+            return jalur;
+        }
+        
+        //jalur untuk pesan M
+        public List<String> getJalurM(DTNHost host){
+            String hostname = host.toString();
+            List<String> jalur = new ArrayList<String>();
+            
+            //memilih jalur berdasatkan host (sensor) mana yang buat
+            switch(hostname){
+                case "sensor1":
+                    jalur.add("1A");
+                    jalur.add("2A");
+                    jalur.add("3B");
+                    break;
+                default:
+                    break;
+            }
+            return jalur;
+        }
 }
