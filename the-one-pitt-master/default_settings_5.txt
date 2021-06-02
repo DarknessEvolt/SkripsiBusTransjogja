@@ -74,7 +74,7 @@ Group.interface3 = w802-15-4Interface
 # Kecepatan Bus Transjogja
 Group.speed = 3, 8
 # Message TTL of 120 minutes (2 hours)
-Group.msgTtl = 43200
+Group.msgTtl = 120
 Group.stopFile = data/Stop3Points.txt
 Group.stopTime = 5, 30
 

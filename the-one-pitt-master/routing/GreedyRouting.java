@@ -23,10 +23,6 @@ import movement.map.MapRoute;
  */
 public class GreedyRouting implements RoutingDecisionEngineWithCalculation {
 
-    List<DTNHost> destination = new LinkedList<>();
-    private final double MAX_NP = 28000;
-    private Map<DTNHost, Double> np = new HashMap<DTNHost, Double>();
-
     public GreedyRouting(Settings s) {
 
     }
@@ -49,14 +45,6 @@ public class GreedyRouting implements RoutingDecisionEngineWithCalculation {
     @Override
     public void doExchangeForNewConnection(Connection con, DTNHost peer) {
 
-        
-
-    }
-
-    public Map<DTNHost, Double> getNearestPoint() {
-
-        return np;
-
     }
 
     @Override
@@ -75,35 +63,37 @@ public class GreedyRouting implements RoutingDecisionEngineWithCalculation {
 
     @Override
     public boolean shouldSendMessageToHost(Message m, DTNHost otherHost) {
-        
+
         //mengambil jalur dari pesan
         List<String> jalur = (List) m.getProperty("jalur");
-        
+
         if (m.getTo() == otherHost) {
             return true;
 
         }
-        
+
         //jika jalur kosong, berarti pesan sudah sampai di rute terakhir, tinggal tunggu ketemu tujuan
-        if(jalur.isEmpty()){
+        if (jalur.isEmpty()) {
             return false;
-        
-        //jika jalur masih ada isinya
+
+            //jika jalur masih ada isinya
         } else {
             //jika node yang ditemui merupakan node yang tertulis di jalur yang harus dilewati berikutnya
-            
-//            if(jalur.get(0).contains(otherHost.toString().substring(0, 2))){ 
-            if(otherHost.toString().equals(jalur.get(0))){
+
+            if (jalur.get(0).contains(otherHost.toString().substring(0, 2))) {
+//            if(otherHost.toString().equals(jalur.get(0))){
                 //hapus node dari jalur
                 jalur.remove(0);
                 //update jalur ke pesan
                 m.updateProperty("jalur", jalur);
                 //kirim pesan
+
                 return true;
             } else {
                 //jika node yang ditemui berbeda dengan yang tercatat di jalur pesan, tidak dikirim
                 return false;
             }
+
         }
     }
 
