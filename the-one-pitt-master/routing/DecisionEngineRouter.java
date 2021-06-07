@@ -408,137 +408,206 @@ public class DecisionEngineRouter extends ActiveRouter {
 //        System.out.println(hostname);
         //memilih jalur berdasatkan host (sensor) mana yang buat
         switch (hostname) {
-
-            case "s9":
-                jalur.add("8");
-                jalur.add("3A");
-                break;
-            case "s10":
+            case "s28":
                 jalur.add("10");
                 jalur.add("3A");
                 break;
-            case "s11":
-                jalur.add("6A");
-                jalur.add("3A");
-                break;
-            case "s12":
+            case "s29":
                 jalur.add("11");
                 jalur.add("3B");
                 break;
-            case "s13":
-                jalur.add("3A");
-                break;
-            case "s14":
-                jalur.add("3A");
-                break;
-            case "s15":
-                jalur.add("2A");
-                jalur.add("3A");
-                break;
-            case "s16":
-                jalur.add("3A");
-                break;
-            case "s17":
-                jalur.add("3A");
-                break;
-            case "s18":
-                jalur.add("2A");
-                jalur.add("3A");
-                break;
-            case "s19":
-                jalur.add("3A");
-                break;
-            case "s20":
-                jalur.add("7");
-                jalur.add("3A");
-                break;
-            case "s21":
-                jalur.add("3A");
-                break;
-            case "s22":
-                jalur.add("2A");
-                jalur.add("3A");
-                break;
-            case "s23":
-                jalur.add("3A");
-                break;
-            case "s24":
-                jalur.add("3A");
-                break;
-            case "s25":
-                jalur.add("5A");
-                break;
-            case "s26":
-                jalur.add("5A");
-                break;
-            case "s27":
-                jalur.add("5A");
-                break;
-            case "s28":
-                jalur.add("3A");
-                break;
-            case "s29":
-                jalur.add("3A");
-                break;
             case "s30":
-                jalur.add("3A");
+                 jalur.add("3A");
                 break;
             case "s31":
-                jalur.add("3A");
+                 jalur.add("3A");
                 break;
             case "s32":
+                 jalur.add("2A");
                 jalur.add("3A");
                 break;
             case "s33":
-                jalur.add("1A");
+                jalur.add("2A");
                 jalur.add("3A");
                 break;
             case "s34":
-                jalur.add("11");
-                jalur.add("3B");
+                jalur.add("2A");
+                jalur.add("3A");
                 break;
             case "s35":
+                 jalur.add("2A");
                 jalur.add("3A");
                 break;
             case "s36":
-                jalur.add("5A");
+                jalur.add("3A");
                 break;
             case "s37":
-                jalur.add("5A");
+                jalur.add("1A");
+                jalur.add("3A");
                 break;
             case "s38":
-                jalur.add("2A");
-                jalur.add("3A");
+                jalur.add("11");
+                jalur.add("3B");
                 break;
             case "s39":
                 jalur.add("3A");
                 break;
             case "s40":
-                jalur.add("10");
-                jalur.add("3A");
+                jalur.add("5A");
                 break;
             case "s41":
-                jalur.add("10");
                 jalur.add("3A");
                 break;
             case "s42":
-                jalur.add("5A");
-                break;
-            case "s43":
+                jalur.add("10");
                 jalur.add("3A");
                 break;
+            case "s43":
+                jalur.add("5A");
+                break;
             case "s44":
-                jalur.add("8");
                 jalur.add("3A");
                 break;
             case "s45":
-                jalur.add("1A");
+                jalur.add("8");
                 jalur.add("3A");
                 break;
             case "s46":
-                jalur.add("11");
-                jalur.add("3B");
+                jalur.add("1A");
+                jalur.add("3A");
                 break;
+            default:
+                break;
+//            case "s9":
+//                jalur.add("8");
+//                jalur.add("3A");
+//                break;
+//            case "s10":
+//                jalur.add("10");
+//                jalur.add("3A");
+//                break;
+//            case "s11":
+//                jalur.add("6A");
+//                jalur.add("3A");
+//                break;
+//            case "s12":
+//                jalur.add("11");
+//                jalur.add("3B");
+//                break;
+//            case "s13":
+//                jalur.add("3A");
+//                break;
+//            case "s14":
+//                jalur.add("3A");
+//                break;
+//            case "s15":
+//                jalur.add("2A");
+//                jalur.add("3A");
+//                break;
+//            case "s16":
+//                jalur.add("3A");
+//                break;
+//            case "s17":
+//                jalur.add("3A");
+//                break;
+//            case "s18":
+//                jalur.add("2A");
+//                jalur.add("3A");
+//                break;
+//            case "s19":
+//                jalur.add("3A");
+//                break;
+//            case "s20":
+//                jalur.add("7");
+//                jalur.add("3A");
+//                break;
+//            case "s21":
+//                jalur.add("3A");
+//                break;
+//            case "s22":
+//                jalur.add("2A");
+//                jalur.add("3A");
+//                break;
+//            case "s23":
+//                jalur.add("3A");
+//                break;
+//            case "s24":
+//                jalur.add("3A");
+//                break;
+//            case "s25":
+//                jalur.add("5A");
+//                break;
+//            case "s26":
+//                jalur.add("5A");
+//                break;
+//            case "s27":
+//                jalur.add("5A");
+//                break;
+//            case "s28":
+//                jalur.add("3A");
+//                break;
+//            case "s29":
+//                jalur.add("3A");
+//                break;
+//            case "s30":
+//                jalur.add("3A");
+//                break;
+//            case "s31":
+//                jalur.add("3A");
+//                break;
+//            case "s32":
+//                jalur.add("3A");
+//                break;
+//            case "s33":
+//                jalur.add("1A");
+//                jalur.add("3A");
+//                break;
+//            case "s34":
+//                jalur.add("11");
+//                jalur.add("3B");
+//                break;
+//            case "s35":
+//                jalur.add("3A");
+//                break;
+//            case "s36":
+//                jalur.add("5A");
+//                break;
+//            case "s37":
+//                jalur.add("5A");
+//                break;
+//            case "s38":
+//                jalur.add("2A");
+//                jalur.add("3A");
+//                break;
+//            case "s39":
+//                jalur.add("3A");
+//                break;
+//            case "s40":
+//                jalur.add("10");
+//                jalur.add("3A");
+//                break;
+//            case "s41":
+//                jalur.add("10");
+//                jalur.add("3A");
+//                break;
+//            case "s42":
+//                jalur.add("5A");
+//                break;
+//            case "s43":
+//                jalur.add("3A");
+//                break;
+//            case "s44":
+//                jalur.add("8");
+//                jalur.add("3A");
+//                break;
+//            case "s45":
+//                jalur.add("1A");
+//                jalur.add("3A");
+//                break;
+//            case "s46":
+//                jalur.add("11");
+//                jalur.add("3B");
+//                break;
 
 //            case "s10":
 ////                    jalur.add("1A2A");
@@ -670,8 +739,7 @@ public class DecisionEngineRouter extends ActiveRouter {
 //                jalur.add("9_");
 //                jalur.add("5A_");
 //                break;
-            default:
-                break;
+            
         }
         return jalur;
     }
@@ -683,56 +751,59 @@ public class DecisionEngineRouter extends ActiveRouter {
 
         //memilih jalur berdasatkan host (sensor) mana yang buat
         switch (hostname) {
+
             case "s9":
                 jalur.add("8_");
                 jalur.add("10_");
                 break;
             case "s10":
-                jalur.add("10_");
-                //  jalur.add("3B");
-                break;
-            case "s11":
                 jalur.add("6A_");
                 jalur.add("10_");
                 break;
-            case "s12":
-                jalur.add("9_");
+            case "s11":
                 jalur.add("10_");
                 break;
+            case "s12":
+                jalur.add("10_");
+                ;
+                break;
             case "s13":
-                jalur.add("8_");
                 jalur.add("10_");
                 break;
             case "s14":
-                jalur.add("4A_");
+                jalur.add("7_");
                 jalur.add("10_");
                 break;
             case "s15":
-                jalur.add("7_");
-                jalur.add("10_");
-                break;
-            case "s16":
-                jalur.add("10_");
-                break;
-            case "s17":
-                jalur.add("10_");
-                break;
-            case "s18":
-                jalur.add("10_");
-                break;
-            case "s19":
-                jalur.add("10_");
-                break;
-            case "s20":
-                jalur.add("7_");
-                jalur.add("10_");
-                break;
-            case "s21":
                 jalur.add("1A_");
                 jalur.add("10_");
                 break;
-            case "s22":
+            case "s16":
+                jalur.add("1B_");
+                jalur.add("10_");
+                break;
+            case "s17":
+                jalur.add("4B_");
+                jalur.add("10_");
+                break;
+            case "s18":
+                jalur.add("1A_");
+                jalur.add("10_");
+                break;
+            case "s19":
+                jalur.add("11_");
+                jalur.add("10_");
+                break;
+            case "s20":
                 jalur.add("2B_");
+                jalur.add("10_");
+                break;
+            case "s21":
+                jalur.add("2A_");
+                jalur.add("10_");
+                break;
+            case "s22":
+                jalur.add("3B_");
                 jalur.add("10_");
                 break;
             case "s23":
@@ -740,93 +811,163 @@ public class DecisionEngineRouter extends ActiveRouter {
                 jalur.add("10_");
                 break;
             case "s24":
-                jalur.add("4B_");
+                jalur.add("2A_");
                 jalur.add("10_");
                 break;
             case "s25":
-                jalur.add("1A_");
                 jalur.add("10_");
                 break;
             case "s26":
-                jalur.add("11_");
-                jalur.add("10_");
-                break;
-            case "s27":
-                jalur.add("2A_");
-                jalur.add("10_");
-                break;
-            case "s28":
-                jalur.add("4A_");
-                jalur.add("10_");
-                break;
-            case "s29":
-                jalur.add("2B_");
-                jalur.add("10_");
-                break;
-            case "s30":
-                jalur.add("2A_");
-                jalur.add("10_");
-                break;
-            case "s31":
-                jalur.add("3B_");
-                jalur.add("10_");
-                break;
-            case "s32":
-                jalur.add("1B_");
-                jalur.add("10_");
-                break;
-            case "s33":
-                jalur.add("1A_");
-                jalur.add("10_");
-                break;
-            case "s34":
-                jalur.add("8_");
-                jalur.add("10_");
-                break;
-            case "s35":
-                jalur.add("2B_");
-                jalur.add("10_");
-                break;
-            case "s36":
-                jalur.add("2A_");
-                jalur.add("10_");
-                break;
-            case "s37":
-                jalur.add("1B_");
-                jalur.add("10_");
-                break;
-            case "s38":
-                jalur.add("10_");
-                break;
-            case "s39":
-                jalur.add("10_");
-                break;
-            case "s40":
-                jalur.add("10_");
-                break;
-            case "s41":
-                jalur.add("10_");
-                break;
-            case "s42":
-                jalur.add("11_");
-                jalur.add("10_");
-                break;
-            case "s43":
-                jalur.add("11_");
-                jalur.add("10_");
-                break;
-            case "s44":
-                jalur.add("8_");
-                jalur.add("10_");
-                break;
-            case "s45":
-                jalur.add("4B_");
-                jalur.add("10_");
-                break;
-            case "s46":
                 jalur.add("9_");
                 jalur.add("10_");
                 break;
+            case "s27":
+                jalur.add("10_");
+                break;
+//            case "s9":
+//                jalur.add("8_");
+//                jalur.add("10_");
+//                break;
+//            case "s10":
+//                jalur.add("10_");
+//                //  jalur.add("3B");
+//                break;
+//            case "s11":
+//                jalur.add("6A_");
+//                jalur.add("10_");
+//                break;
+//            case "s12":
+//                jalur.add("9_");
+//                jalur.add("10_");
+//                break;
+//            case "s13":
+//                jalur.add("8_");
+//                jalur.add("10_");
+//                break;
+//            case "s14":
+//                jalur.add("4A_");
+//                jalur.add("10_");
+//                break;
+//            case "s15":
+//                jalur.add("7_");
+//                jalur.add("10_");
+//                break;
+//            case "s16":
+//                jalur.add("10_");
+//                break;
+//            case "s17":
+//                jalur.add("10_");
+//                break;
+//            case "s18":
+//                jalur.add("10_");
+//                break;
+//            case "s19":
+//                jalur.add("10_");
+//                break;
+//            case "s20":
+//                jalur.add("7_");
+//                jalur.add("10_");
+//                break;
+//            case "s21":
+//                jalur.add("1A_");
+//                jalur.add("10_");
+//                break;
+//            case "s22":
+//                jalur.add("2B_");
+//                jalur.add("10_");
+//                break;
+//            case "s23":
+//                jalur.add("1B_");
+//                jalur.add("10_");
+//                break;
+//            case "s24":
+//                jalur.add("4B_");
+//                jalur.add("10_");
+//                break;
+//            case "s25":
+//                jalur.add("1A_");
+//                jalur.add("10_");
+//                break;
+//            case "s26":
+//                jalur.add("11_");
+//                jalur.add("10_");
+//                break;
+//            case "s27":
+//                jalur.add("2A_");
+//                jalur.add("10_");
+//                break;
+//            case "s28":
+//                jalur.add("4A_");
+//                jalur.add("10_");
+//                break;
+//            case "s29":
+//                jalur.add("2B_");
+//                jalur.add("10_");
+//                break;
+//            case "s30":
+//                jalur.add("2A_");
+//                jalur.add("10_");
+//                break;
+//            case "s31":
+//                jalur.add("3B_");
+//                jalur.add("10_");
+//                break;
+//            case "s32":
+//                jalur.add("1B_");
+//                jalur.add("10_");
+//                break;
+//            case "s33":
+//                jalur.add("1A_");
+//                jalur.add("10_");
+//                break;
+//            case "s34":
+//                jalur.add("8_");
+//                jalur.add("10_");
+//                break;
+//            case "s35":
+//                jalur.add("2B_");
+//                jalur.add("10_");
+//                break;
+//            case "s36":
+//                jalur.add("2A_");
+//                jalur.add("10_");
+//                break;
+//            case "s37":
+//                jalur.add("1B_");
+//                jalur.add("10_");
+//                break;
+//            case "s38":
+//                jalur.add("10_");
+//                break;
+//            case "s39":
+//                jalur.add("10_");
+//                break;
+//            case "s40":
+//                jalur.add("10_");
+//                break;
+//            case "s41":
+//                jalur.add("10_");
+//                break;
+//            case "s42":
+//                jalur.add("11_");
+//                jalur.add("10_");
+//                break;
+//            case "s43":
+//                jalur.add("11_");
+//                jalur.add("10_");
+//                break;
+//            case "s44":
+//                jalur.add("8_");
+//                jalur.add("10_");
+//                break;
+//            case "s45":
+//                jalur.add("4B_");
+//                jalur.add("10_");
+//                break;
+//            case "s46":
+//                jalur.add("9_");
+//                jalur.add("10_");
+//                break;
             default:
                 break;
         }

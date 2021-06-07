@@ -124,6 +124,7 @@ public class ReportBusPesanPolusi extends Report implements MessageListener {
                 this.nrofDropped++;
             } else {
                 this.nrofRemoved++;
+//                System.out.println(nrofRemoved+"="+m);
             }
         }
 

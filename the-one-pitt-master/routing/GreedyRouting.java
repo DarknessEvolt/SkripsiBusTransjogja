@@ -54,6 +54,7 @@ public class GreedyRouting implements RoutingDecisionEngineWithCalculation {
 
     @Override
     public boolean isFinalDest(Message m, DTNHost aHost) {
+////        System.out.println(m+"="+m.getTo());
         return m.getTo() == aHost;
     }
 
@@ -106,6 +107,7 @@ public class GreedyRouting implements RoutingDecisionEngineWithCalculation {
 
     @Override
     public boolean shouldDeleteSentMessage(Message m, DTNHost otherHost) {
+//        System.out.println(m+"\n posisi = "+otherHost);
         return true;
     }
 

@@ -75,6 +75,7 @@ public class GeOops implements RoutingDecisionEngineWithCalculation {
 
     @Override
     public boolean isFinalDest(Message m, DTNHost aHost) {
+//        System.out.println(m+"="+m.getTo());
         return m.getTo() == aHost;
     }
 

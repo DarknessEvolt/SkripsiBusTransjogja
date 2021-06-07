@@ -283,13 +283,15 @@ public abstract class ActiveRouter extends MessageRouter {
             /* delete message from the buffer as "drop" */
             deleteMessage(m.getId(), true);
             freeBuffer += m.getSize();
+ System.out.println(m+"=DropBuffer");
+            
         }
 
         return true;
     }
 
     /**
-     * Drops messages whose TTL is less than zero.
+     * Drops meages whose TTL is less than zero.
      */
     protected void dropExpiredMessages() { // drop pesan yang ttlnya sudah habis 
         Message[] messages = getMessageCollection().toArray(new Message[0]);
@@ -297,6 +299,7 @@ public abstract class ActiveRouter extends MessageRouter {
             int ttl = messages[i].getTtl();
             if (ttl <= 0) {
                 deleteMessage(messages[i].getId(), true);
+ System.out.println(messages[i]+"= DropTTL");
             }
         }
     }
